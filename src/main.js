@@ -72,6 +72,7 @@ async function run() {
     const outputPath = core.getInput('output_path')
     const sign = core.getBooleanInput('sign')
     const notarize = core.getBooleanInput('notarize')
+    const maxWaitSeconds = core.getInput('max_wait_seconds')
     const staple = core.getBooleanInput('staple')
     const configFiles = core.getMultilineInput('config_file')
     const profile = core.getInput('profile')
@@ -174,6 +175,11 @@ async function run() {
         args.push('--staple')
       } else {
         args.push('--wait')
+      }
+
+      if (maxWaitSeconds)
+      {
+        args.push('--max-wait-seconds', maxWaitSeconds)
       }
 
       args.push(signedPath)

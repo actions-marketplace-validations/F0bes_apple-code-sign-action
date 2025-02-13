@@ -26,6 +26,9 @@ inputs:
     description: 'Whether to notarize'
     default: 'false'
 
+  max_wait_seconds:
+    description: 'The maximum amount of time to wait for notarization'
+
   # Attaches a pre-issued "notarization ticket" to an entity.
   staple:
     description: 'Whether to staple a notarization ticket'
